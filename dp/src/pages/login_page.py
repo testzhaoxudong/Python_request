@@ -17,13 +17,6 @@ class Login_Page(Common):
         object.send_keys(driver,self.password,password_value)
         object.click(driver,self.login_button)
 
-
-    def yuzhi_login_oper(self,driver,username_value,password_value):
-        object = Common()
-        object.send_keys(driver,self.username,username_value)
-        object.send_keys(driver,self.password,password_value)
-        object.click(driver,self.login_button)
-
     def get_login_success_assert_text(self,driver):
         return WebDriverWait(driver,10,0.2).until(expected_conditions.presence_of_element_located(( self.success_assert ))).text
 

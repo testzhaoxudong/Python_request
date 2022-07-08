@@ -1,10 +1,9 @@
 import os
 import time
-
 from selenium import webdriver
+from selenium.webdriver import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-
 from dp.src.common.get_test_info import Get_Test_Info
 
 
@@ -33,5 +32,7 @@ class Common:
         driver.get(url)
         wait = WebDriverWait(driver,10,0.2)
         return driver,wait
-
-
+    """双击"""
+    def double_click(self,driver,element):
+        element = WebDriverWait(driver,10,0.2).until(EC.presence_of_element_located(( element )))
+        ActionChains(driver).double_click(element).perform()
